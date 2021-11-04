@@ -30,6 +30,6 @@ public class ApiController {
 
     @GetMapping("/lab3/{string}/csv")
     public String formatResponseCsv(@PathVariable("string") String string) {
-        return 'Nie udało się';
+        return "Nie udało się";
     }
 }
