@@ -29,5 +29,7 @@ http://localhost:8081/api/ppkwu/lab3/TESt0912./json
 ```
 
 `wejście:`
+TESt0912.
 
 `wyjście:`
+{"UPPER":"3","LOWER":"1","OWN":"5","DIGIT":"4","SPECIAL":"1"}
