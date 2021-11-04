@@ -1,6 +1,7 @@
 package com.example.lab3.service;
 
 
+import com.example.lab3.StringHelper;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.json.JSONException;
@@ -34,6 +35,13 @@ public class ApiService {
             e.printStackTrace();
         }
         return json;
+    }
+
+    public StringHelper formatResponseXml(String string) {
+        RestTemplate restTemplate = new RestTemplate();
+        String result = restTemplate.getForObject(URI + string, String.class);
+        String[] str = cutString(result);
+        return new StringHelper(str[1], str[3], str[5], str[7], str[9]);
     }
 
     private String[] cutString(String result) {

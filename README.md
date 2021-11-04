@@ -22,14 +22,44 @@ txt ("rodzaj znaków: %d\n...", json, xml i csv).
 GET
 ```
 
-* **Przykład użycia:**
+* **Przykład użycia JSON:**
 
 ```
 http://localhost:8081/api/ppkwu/lab3/TESt0912./json
 ```
 
 `wejście:`
+
+```
 TESt0912.
+```
 
 `wyjście:`
+
+```
 {"UPPER":"3","LOWER":"1","OWN":"5","DIGIT":"4","SPECIAL":"1"}
+```
+
+* **Przykład użycia XML:**
+
+```
+http://localhost:8081/api/ppkwu/lab3/TESt0912./xml
+```
+
+`wejście:`
+
+```
+TESt0912.
+```
+
+`wyjście:`
+
+```
+<StringHelper>
+<upperCounter>3</upperCounter>
+<lowerCounter>1</lowerCounter>
+<digitCounter>4</digitCounter>
+<specialCounter>1</specialCounter>
+<ownCombinationCounter>5</ownCombinationCounter>
+</StringHelper>
+```
