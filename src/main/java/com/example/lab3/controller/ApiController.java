@@ -1,7 +1,6 @@
 package com.example.lab3.controller;
 
 
-import com.example.lab3.StringHelper;
 import com.example.lab3.service.ApiService;
 import lombok.RequiredArgsConstructor;
 import org.json.JSONException;
@@ -22,7 +21,7 @@ public class ApiController {
     }
 
     @GetMapping(value = "/lab3/{string}/xml", produces = {"application/xml", "text/xml"})
-    public StringHelper formatResponseXml(@PathVariable("string") String string) {
+    public String formatResponseXml(@PathVariable("string") String string) {
         return apiService.formatResponseXml(string);
     }
 

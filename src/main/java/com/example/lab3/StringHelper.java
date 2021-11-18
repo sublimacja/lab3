@@ -6,10 +6,12 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 
 @Getter
 @Setter
+@ToString
 @AllArgsConstructor
 @XmlRootElement(name = "StringHelper", namespace = "StringHelper")
 @JsonPropertyOrder({"upperCounter", "lowerCounter", "digitCounter", "specialCounter", "ownCombinationCounter"})

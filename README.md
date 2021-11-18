@@ -63,3 +63,39 @@ TESt0912.
 <ownCombinationCounter>5</ownCombinationCounter>
 </StringHelper>
 ```
+
+* **Przykład użycia TXT:**
+
+```
+http://localhost:8081/api/ppkwu/lab3/TESt0912./txt
+```
+
+`wejście:`
+
+```
+TESt0912.
+```
+
+`wyjście:`
+
+```
+UPPER: 3 LOWER: 1 DIGIT: 4 SPECIAL: 1 OWN: 5
+```
+
+* **Przykład użycia CSV:**
+
+```
+http://localhost:8081/api/ppkwu/lab3/TESt0912./csv
+```
+
+`wejście:`
+
+```
+TESt0912.
+```
+
+`wyjście:`
+
+```
+UPPER,LOWER,OWN,DIGIT,SPECIAL 3,1,5,4,1
+```

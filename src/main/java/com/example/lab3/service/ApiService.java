@@ -4,10 +4,7 @@ package com.example.lab3.service;
 import com.example.lab3.StringHelper;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.json.CDL;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import org.json.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -39,11 +36,13 @@ public class ApiService {
         return json;
     }
 
-    public StringHelper formatResponseXml(String string) {
+    public String formatResponseXml(String string) {
         RestTemplate restTemplate = new RestTemplate();
         String result = restTemplate.getForObject(URI + string, String.class);
         String[] str = cutString(result);
-        return new StringHelper(str[1], str[3], str[5], str[7], str[9]);
+        StringHelper stringHelper = new StringHelper(str[1], str[3], str[5], str[7], str[9]);
+        JSONObject json = new JSONObject(stringHelper);
+        return "<?xml version=\"1.0\" encoding=\"UTF-8\"?><stringHelper>" + XML.toString(json) + "</stringHelper>";
     }
 
     public String formatResponseCsv(String string) throws JSONException {
