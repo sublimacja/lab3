@@ -4,13 +4,11 @@ package com.example.lab3.controller;
 import com.example.lab3.StringHelper;
 import com.example.lab3.service.ApiService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.MediaType;
+import org.json.JSONException;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.Map;
 
 @RestController
 @RequestMapping("/api/ppkwu")
@@ -29,7 +27,12 @@ public class ApiController {
     }
 
     @GetMapping("/lab3/{string}/csv")
-    public String formatResponseCsv(@PathVariable("string") String string) {
-        return "Nie udało się";
+    public String formatResponseCsv(@PathVariable("string") String string) throws JSONException {
+        return apiService.formatResponseCsv(string);
+    }
+
+    @GetMapping("/lab3/{string}/txt")
+    public String formatResponseTxt(@PathVariable("string") String string) throws JSONException {
+        return apiService.formatResponseTxt(string);
     }
 }

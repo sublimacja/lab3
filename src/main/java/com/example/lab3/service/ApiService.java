@@ -4,6 +4,8 @@ package com.example.lab3.service;
 import com.example.lab3.StringHelper;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.json.CDL;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.stereotype.Service;
@@ -42,6 +44,22 @@ public class ApiService {
         String result = restTemplate.getForObject(URI + string, String.class);
         String[] str = cutString(result);
         return new StringHelper(str[1], str[3], str[5], str[7], str[9]);
+    }
+
+    public String formatResponseCsv(String string) throws JSONException {
+
+        String result = formatResponseJson(string);
+        result = "{\"csv\":[" + result + "]}";
+        JSONObject json = new JSONObject(result);
+        JSONArray jsonArray = json.getJSONArray("csv");
+        result = CDL.toString(jsonArray);
+        return result;
+    }
+
+    public String formatResponseTxt(String string) throws JSONException {
+
+        RestTemplate restTemplate = new RestTemplate();
+        return restTemplate.getForObject(URI + string, String.class);
     }
 
     private String[] cutString(String result) {
